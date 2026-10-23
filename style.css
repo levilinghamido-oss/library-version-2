@@ -1,0 +1,643 @@
+/* =====================================================================
+   BIBLIOTHÈQUE ALMAARIFA — style.css
+   Chargé APRÈS Bootstrap 5.3 : il le personnalise, il ne le remplace pas.
+
+   SOMMAIRE
+   1. Thème : couleurs / polices de la marque (variables Bootstrap)
+   2. Base
+   3. Petits utilitaires personnalisés (absents de Bootstrap)
+   4. Composants Bootstrap aux couleurs de la marque (boutons, formulaires)
+   5. En-tête (header) et navigation
+   6. Pied de page (footer)
+   7. Accueil : catégories et meilleures ventes
+   8. Page Livres
+   9. Page Auteurs
+  10. Page À propos
+   ===================================================================== */
+
+
+/* =====================================================================
+   1. THÈME
+   Bootstrap 5.3 lit ses couleurs dans des variables CSS. En les
+   redéfinissant ici, les classes Bootstrap prennent les couleurs du site :
+     bg-primary / text-primary  -> bleu marine  #142747
+     bg-warning / text-warning  -> orange       #f9aa2b
+     text-body-secondary        -> gris bleuté  #68758a
+     bg-body-tertiary           -> fond clair   #f7f9fc
+     bg-body-secondary          -> fond d'image #f1f4f9
+   ===================================================================== */
+:root {
+    --bs-body-font-family: Arial, Helvetica, sans-serif;
+    --bs-body-color: #142747;
+    --bs-body-color-rgb: 20, 39, 71;
+    --bs-heading-color: #142747;
+    --bs-secondary-color: #68758a;
+    --bs-secondary-bg: #f1f4f9;
+    --bs-tertiary-bg: #f7f9fc;
+    --bs-border-color: #e3e8f1;
+
+    --bs-primary: #142747;
+    --bs-primary-rgb: 20, 39, 71;
+    --bs-warning: #f9aa2b;
+    --bs-warning-rgb: 249, 170, 43;
+
+    /* rounded-3 = 12px, comme les cartes d'origine */
+    --bs-border-radius-lg: 0.75rem;
+
+    /* Couleurs supplémentaires de la marque */
+    --al-gold: #d98b12;       /* liens dorés, flèches */
+    --al-gold-dark: #c7830c;  /* petits titres */
+    --al-navy-deep: #0b1832;
+    --al-navy-top: #0a1630;
+    --al-navy-light: #14294f;
+    --al-navy-nav: #203b6b;
+    --al-text-light: #c7d5ed;
+}
+
+
+/* =====================================================================
+   2. BASE
+   ===================================================================== */
+
+/* Le site d'origine n'a aucun lien souligné ni coloré par défaut */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =====================================================================
+   3. UTILITAIRES PERSONNALISÉS
+   Bootstrap n'a pas de classe pour ces valeurs précises.
+   ===================================================================== */
+
+/* Largeurs maximales */
+.mw-540  { max-width: 540px; }
+.mw-600  { max-width: 600px; }
+.mw-620  { max-width: 620px; }
+.mw-1250 { max-width: 1250px; }
+.mw-1400 { max-width: 1400px; }
+.mw-1500 { max-width: 1500px; }
+
+/* Petite taille de texte (12px) : Bootstrap s'arrête à .small (14px) */
+.fs-8 { font-size: 0.75rem !important; }
+
+/* Espacement des lettres */
+.tracking-wide { letter-spacing: 2px; }
+
+/* Couleurs dorées */
+.text-gold      { color: var(--al-gold) !important; }
+.text-gold-dark { color: var(--al-gold-dark) !important; }
+
+/* Fonds de l'en-tête et du pied de page */
+.bg-navy-deep  { background-color: var(--al-navy-deep); }
+.bg-navy-top   { background-color: var(--al-navy-top); }
+.bg-navy-light { background-color: var(--al-navy-light); }
+.bg-navy-nav   { background-color: var(--al-navy-nav); }
+
+/* Dégradé des bandeaux de titre (Auteurs, À propos, Contact) */
+.bg-hero {
+    background: linear-gradient(135deg, #ffffff, #eef3fb);
+}
+
+/* Petit sur-titre en majuscules */
+.eyebrow {
+    display: inline-block;
+    color: var(--al-gold-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+/* Trait décoratif sous les titres (couleur : bg-warning) */
+.title-line {
+    width: 65px;
+    height: 4px;
+}
+
+/* Pastilles d'icône */
+.icon-circle {
+    width: 64px;
+    height: 64px;
+}
+
+.icon-square {
+    width: 45px;
+    height: 45px;
+}
+
+/* Carte qui se soulève au survol (remplace 6 règles :hover dupliquées) */
+.hover-lift {
+    box-shadow: 0 3px 12px rgba(20, 39, 71, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(20, 39, 71, 0.14);
+}
+
+.hover-lift.hover-gold:hover {
+    border-color: var(--bs-warning) !important;
+}
+
+/* Accessibilité clavier */
+.hover-lift:focus-visible {
+    outline: 3px solid var(--bs-warning);
+    outline-offset: 3px;
+}
+
+
+/* =====================================================================
+   4. COMPOSANTS BOOTSTRAP AUX COULEURS DE LA MARQUE
+   Les boutons Bootstrap 5.3 se personnalisent avec des variables --bs-btn-*
+   ===================================================================== */
+
+/* Bouton marine -> orange au survol */
+.btn-primary {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-warning);
+    --bs-btn-hover-border-color: var(--bs-warning);
+    --bs-btn-active-color: var(--bs-primary);
+    --bs-btn-active-bg: #ffc45f;
+    --bs-btn-active-border-color: #ffc45f;
+    --bs-btn-focus-shadow-rgb: 20, 39, 71;
+}
+
+/* Bouton orange -> orange clair au survol */
+.btn-warning {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-bg: var(--bs-warning);
+    --bs-btn-border-color: var(--bs-warning);
+    --bs-btn-hover-color: var(--bs-primary);
+    --bs-btn-hover-bg: #ffc45f;
+    --bs-btn-hover-border-color: #ffc45f;
+    --bs-btn-active-color: var(--bs-primary);
+    --bs-btn-active-bg: #ffc45f;
+    --bs-btn-active-border-color: #ffc45f;
+    --bs-btn-focus-shadow-rgb: 249, 170, 43;
+}
+
+/* Bouton contour marine -> rempli au survol */
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: var(--bs-primary);
+    --bs-btn-active-border-color: var(--bs-primary);
+    --bs-btn-focus-shadow-rgb: 20, 39, 71;
+    --bs-btn-border-width: 2px;
+}
+
+/* Variante : bouton d'envoi du formulaire (survol bleu plus clair) */
+.btn-submit {
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #243f69;
+    --bs-btn-hover-border-color: #243f69;
+}
+
+/* Flèche orange dans un bouton marine */
+.btn-primary .btn-arrow {
+    color: var(--bs-warning);
+}
+
+.btn-primary:hover .btn-arrow {
+    color: inherit;
+}
+
+/* Les cartes utilisent la couleur de bordure du site */
+.card {
+    --bs-card-border-color: var(--bs-border-color);
+    --bs-card-border-radius: var(--bs-border-radius-lg);
+}
+
+/* Focus orange sur les champs de formulaire */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--bs-warning);
+    box-shadow: 0 0 0 3px rgba(249, 170, 43, 0.15);
+}
+
+
+/* =====================================================================
+   5. EN-TÊTE ET NAVIGATION
+   La mise en page (grille, alignements, espacements) est faite avec
+   les classes Bootstrap dans le HTML. Ici : tailles exactes de la marque.
+   ===================================================================== */
+
+.top-bar {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #d8e2f5;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+}
+
+.logo-text strong {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+.cart {
+    font-size: 0.875rem;
+}
+
+.cart-icon {
+    font-size: 22px;
+}
+
+.cart-count {
+    top: -12px;
+    right: -16px;
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+}
+
+/* Barre de recherche : forme "pilule" (rounded-pill) + hauteur */
+.search-bar {
+    height: 48px;
+}
+
+.search-bar input {
+    font-size: 0.8125rem;
+}
+
+.search-bar button {
+    min-width: 48px;
+    line-height: 1;
+}
+
+/* Navigation : navbar Bootstrap (navbar-expand = toujours dépliée) */
+.main-nav {
+    --bs-navbar-color: #dce5f6;
+    --bs-navbar-hover-color: #ffffff;
+    --bs-navbar-active-color: #ffffff;
+}
+
+.main-nav .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+    border-bottom-color: var(--bs-warning);
+}
+
+@media (min-width: 576px) {
+    .top-bar { font-size: 1rem; }
+
+    .logo-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 27px;
+    }
+
+    .logo-text strong {
+        font-size: 1.4375rem;
+        white-space: nowrap;
+    }
+
+    .cart { font-size: 1.1875rem; }
+    .cart-icon { font-size: 28px; }
+
+    .search-bar { height: 60px; }
+    .search-bar input { font-size: 1.0625rem; }
+    .search-bar button { min-width: 70px; }
+
+    .main-nav .nav-link {
+        min-height: 55px;
+        font-size: 0.9375rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-nav .nav-link {
+        min-height: 64px;
+        border-bottom-width: 4px;
+        font-size: 1.0625rem;
+    }
+}
+
+
+/* =====================================================================
+   6. PIED DE PAGE
+   ===================================================================== */
+
+.site-footer {
+    color: var(--al-text-light);
+}
+
+.footer-column > a {
+    transition: color 0.2s;
+}
+
+.footer-column > a:hover {
+    color: var(--bs-warning);
+}
+
+/* Boutons ronds des réseaux sociaux */
+.social-link {
+    width: 43px;
+    height: 43px;
+    background-color: #25324d;
+    color: #d3def0;
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+.social-link:hover {
+    background-color: var(--bs-warning);
+    color: var(--bs-primary);
+}
+
+@media (min-width: 576px) {
+    .social-link {
+        width: 52px;
+        height: 52px;
+        font-size: 25px;
+    }
+}
+
+
+/* =====================================================================
+   7. ACCUEIL
+   ===================================================================== */
+
+/* Cartes de catégories */
+.category-card {
+    min-height: 205px;
+}
+
+.category-icon {
+    width: 78px;
+    height: 75px;
+}
+
+.category-icon img {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon img {
+    transform: scale(1.08);
+}
+
+/* Couvertures des meilleures ventes */
+.book-cover {
+    height: 160px;
+}
+
+.book-title {
+    min-height: 2.8em;
+}
+
+@media (min-width: 576px) {
+    .category-card { min-height: 235px; }
+    .category-icon { width: 100px; height: 95px; }
+    .book-cover { height: 220px; }
+}
+
+
+/* =====================================================================
+   8. PAGE LIVRES
+   ===================================================================== */
+
+.livre-image {
+    height: 160px;
+}
+
+@media (min-width: 576px) {
+    .livre-image { height: 235px; }
+}
+
+
+/* =====================================================================
+   9. PAGE AUTEURS
+   ===================================================================== */
+
+/* Zone colorée avec les initiales */
+.auteur-visuel {
+    min-height: 115px;
+}
+
+.auteur-visuel::before {
+    content: "";
+    position: absolute;
+    width: 165px;
+    height: 165px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.auteur-initiales {
+    font-size: 2.625rem;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Un dégradé par auteur */
+.avatar-vh { background: linear-gradient(135deg, #142747, #395b89); }
+.avatar-pc { background: linear-gradient(135deg, #b46a36, #eab66d); }
+.avatar-as { background: linear-gradient(135deg, #29485f, #7198af); }
+.avatar-ac { background: linear-gradient(135deg, #435266, #8997a9); }
+.avatar-go { background: linear-gradient(135deg, #315653, #79a89b); }
+.avatar-v  { background: linear-gradient(135deg, #77503e, #c69a75); }
+
+/* Lien "Découvrir ses livres →" */
+.auteur-link {
+    transition: color 0.3s ease;
+}
+
+.auteur-link span {
+    transition: transform 0.3s ease;
+}
+
+.auteur-link:hover {
+    color: var(--al-gold);
+}
+
+.auteur-link:hover span {
+    transform: translateX(5px);
+}
+
+@media (min-width: 576px) {
+    .auteur-visuel { min-height: 155px; }
+    .auteur-initiales { font-size: 3.625rem; }
+}
+
+
+/* =====================================================================
+   10. PAGE À PROPOS
+   ===================================================================== */
+
+/* Illustration du bandeau, dessinée uniquement en CSS */
+.apropos-illustration {
+    position: relative;
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+    height: 235px;
+    transform: scale(0.85);
+    margin: -5px auto;
+}
+
+.illustration-cercle {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: #e0e9f7;
+    border-radius: 50%;
+}
+
+.illustration-livre {
+    position: relative;
+    z-index: 2;
+    width: 170px;
+    height: 210px;
+    background: var(--bs-primary);
+    color: #ffffff;
+    border: 5px solid var(--bs-warning);
+    border-radius: 5px 13px 13px 5px;
+    box-shadow: 9px 10px 0 rgba(20, 39, 71, 0.12);
+}
+
+.illustration-livre span {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.illustration-livre strong {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.illustration-livre small {
+    color: var(--bs-warning);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 12px;
+}
+
+.livre-deco {
+    position: absolute;
+    z-index: 1;
+    width: 45px;
+    height: 145px;
+    border-radius: 5px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.livre-deco-1 {
+    left: 15px;
+    bottom: 28px;
+    background: #e7a84c;
+    color: var(--bs-primary);
+    transform: rotate(-8deg);
+}
+
+.livre-deco-2 {
+    right: 20px;
+    bottom: 27px;
+    background: #395a82;
+    color: #ffffff;
+    transform: rotate(8deg);
+}
+
+.livre-deco-3 {
+    left: 45px;
+    top: 19px;
+    width: 34px;
+    height: 85px;
+    background: #88a9b9;
+    color: var(--bs-primary);
+    transform: rotate(-15deg);
+}
+
+.etoile {
+    position: absolute;
+    z-index: 3;
+    color: #e8a023;
+    font-size: 35px;
+}
+
+.etoile-1 { top: 20px; right: 40px; }
+.etoile-2 { left: 12px; top: 40px; font-size: 25px; }
+
+/* Cartes mission / vision : seule la bordure du bas est colorée */
+.mission-card {
+    border-bottom: 4px solid var(--bs-primary);
+}
+
+.mission-card-orange {
+    border-bottom-color: var(--bs-warning);
+}
+
+/* Pastille ✓ de la liste "Pourquoi choisir Almaarifa ?" */
+.choix-check {
+    width: 23px;
+    height: 23px;
+}
+
+/* Illustration "Chaque livre ouvre un monde" */
+.choix-visuel {
+    min-height: 260px;
+}
+
+.choix-grand-cercle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #e0e9f7;
+    border-radius: 50%;
+}
+
+.choix-livre {
+    width: 250px;
+    min-height: 210px;
+}
+
+.choix-livre > span {
+    font-size: 43px;
+}
+
+@media (min-width: 768px) {
+    .apropos-illustration {
+        flex-basis: 290px;
+        width: 290px;
+        max-width: none;
+        height: 265px;
+        transform: scale(0.9);
+        margin: 0;
+    }
+
+    .choix-visuel { min-height: 280px; }
+}
+
+@media (min-width: 992px) {
+    .apropos-illustration {
+        flex-basis: 350px;
+        width: 350px;
+        transform: none;
+    }
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Bibliothèque</title>
+
+    <!-- Bootstrap 5.3 (CDN officiel) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Notre CSS personnalisé : à charger APRÈS Bootstrap -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header bg-navy-deep text-white">
+
+    <div class="top-bar bg-navy-top d-flex justify-content-center align-items-center text-center px-3 py-2">
+        Livraison partout au Maroc · Paiement et commande en mode démonstration
+    </div>
+
+    <div class="container-fluid mw-1500 bg-navy-light px-3 px-md-4 py-3">
+        <div class="row align-items-center g-3 g-lg-4">
+
+            <!-- Logo -->
+            <div class="col col-lg-4 order-1">
+                <a href="index.html" class="logo d-flex align-items-center gap-2 gap-md-3">
+                    <span class="logo-icon d-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-warning">📖</span>
+                    <span class="logo-text d-flex flex-column">
+                        <strong>Bibliothèque Almaarifa</strong>
+                        <small class="text-warning">Librairie en ligne</small>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Recherche (sous le logo sur mobile/tablette) -->
+            <div class="col-12 col-lg-6 order-3 order-lg-2">
+                <form class="search-bar input-group flex-nowrap rounded-pill overflow-hidden bg-white" action="#" method="get">
+                    <input
+                        type="search"
+                        name="recherche"
+                        class="form-control border-0 rounded-0 shadow-none px-3 px-sm-4"
+                        placeholder="Rechercher un titre, un auteur, une catégorie..."
+                    >
+                    <button type="submit" class="btn btn-warning border-0 rounded-0 px-3 fs-3" aria-label="Rechercher">⌕</button>
+                </form>
+            </div>
+
+            <!-- Panier -->
+            <div class="col-auto col-lg-2 order-2 order-lg-3 d-flex justify-content-end justify-content-lg-center">
+                <a href="panier.html" class="cart position-relative d-flex align-items-center gap-1 gap-sm-2">
+                    <span class="cart-icon">🛒</span>
+                    <strong>Panier</strong>
+                    <span class="cart-count position-absolute d-flex align-items-center justify-content-center rounded-circle bg-warning text-primary fw-bold">0</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navigation : navbar Bootstrap toujours dépliée (aucun JavaScript requis) -->
+    <nav class="main-nav navbar navbar-expand bg-navy-nav p-0">
+        <div class="container-fluid mw-1500 justify-content-center justify-content-lg-start px-2 px-md-3 px-lg-4">
+            <div class="navbar-nav flex-wrap justify-content-center">
+                <a href="index.html" class="nav-link px-2 px-md-3 px-lg-4">ACCUEIL</a>
+                <a href="Livres.html" class="nav-link px-2 px-md-3 px-lg-4">LIVRES</a>
+                <a href="Auteurs.html" class="nav-link px-2 px-md-3 px-lg-4">AUTEURS</a>
+                <a href="À propos.html" class="nav-link px-2 px-md-3 px-lg-4 active">À PROPOS</a>
+                <a href="contact.html" class="nav-link px-2 px-md-3 px-lg-4">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ===== PAGE À PROPOS ===== -->
+<main class="overflow-hidden">
+
+    <!-- Section principale -->
+    <section class="bg-hero px-3 px-md-5 py-5">
+        <div class="container-fluid mw-1400 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 gap-md-4 text-center text-md-start">
+
+            <div class="flex-md-fill mw-620">
+                <span class="eyebrow mb-2">BIENVENUE CHEZ ALMAARIFA</span>
+
+                <h1 class="fs-1 fw-bold lh-sm mb-3">À propos de <span class="text-gold">Bibliothèque Almaarifa</span></h1>
+
+                <p class="mw-540 text-body-secondary lh-lg mb-4">
+                    Bien plus qu'une librairie en ligne, nous sommes
+                    un espace dédié à la découverte, au savoir et au
+                    plaisir de lire.
+                </p>
+
+                <a href="Livres.html" class="btn btn-primary d-inline-flex align-items-center gap-3 fw-bold px-4 py-2">
+                    Découvrir nos livres <span class="btn-arrow fs-5">→</span>
+                </a>
+            </div>
+
+            <!-- Illustration réalisée en CSS -->
+            <div class="apropos-illustration d-flex align-items-center justify-content-center">
+                <div class="illustration-cercle"></div>
+
+                <div class="livre-deco livre-deco-1">SAVOIR</div>
+                <div class="livre-deco livre-deco-2">CULTURE</div>
+                <div class="livre-deco livre-deco-3">LECTURE</div>
+
+                <div class="illustration-livre d-flex flex-column align-items-center justify-content-center text-center">
+                    <span>📖</span>
+                    <strong>Le plaisir<br>de lire</strong>
+                    <small>ALMAARIFA</small>
+                </div>
+
+                <div class="etoile etoile-1">✦</div>
+                <div class="etoile etoile-2">✧</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Qui sommes-nous ? -->
+    <section class="container-fluid mw-1250 px-3 px-md-4 px-xl-5 py-5">
+        <div class="row g-3 g-md-5 align-items-start">
+
+            <div class="col-12 col-md-5">
+                <span class="eyebrow mb-2">NOTRE HISTOIRE</span>
+                <h2 class="fs-2 fw-bold lh-base mb-0">Qui sommes-nous ?</h2>
+                <div class="title-line bg-warning rounded-pill mt-3"></div>
+            </div>
+
+            <div class="col-12 col-md-7">
+                <p class="text-body-secondary lh-lg mb-3">
+                    Bienvenue chez <strong class="text-body">Bibliothèque Almaarifa</strong>,
+                    votre librairie en ligne au Maroc. Notre objectif est
+                    de faciliter l'accès aux livres et de permettre à
+                    chacun de découvrir de nouvelles idées, de nouvelles
+                    histoires et de nouveaux horizons.
+                </p>
+
+                <p class="text-body-secondary lh-lg mb-3">
+                    Nous proposons une sélection variée de livres :
+                    romans, sciences, informatique, livres scolaires,
+                    histoire, développement personnel, arts et culture.
+                    Que vous soyez étudiant, passionné de lecture ou
+                    simplement curieux, vous trouverez un univers
+                    adapté à vos envies.
+                </p>
+
+                <p class="text-body-secondary lh-lg mb-0">
+                    Notre ambition est de rendre votre expérience de
+                    recherche et de découverte des livres simple,
+                    agréable et accessible.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Mission et vision -->
+    <section class="bg-body-tertiary px-3 px-md-4 px-xl-5 py-5">
+        <div class="row g-3 g-md-4">
+
+            <div class="col-12 col-md-6">
+                <div class="card mission-card h-100 text-center p-4">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-body-secondary fs-3 mx-auto mb-3">🎯</div>
+
+                    <h3 class="fs-4 fw-bold mb-2">Notre mission</h3>
+
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Rendre les livres et la connaissance plus accessibles,
+                        encourager la lecture et accompagner chacun dans
+                        son parcours d'apprentissage.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card mission-card mission-card-orange h-100 text-center p-4">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-body-secondary fs-3 mx-auto mb-3">🌟</div>
+
+                    <h3 class="fs-4 fw-bold mb-2">Notre vision</h3>
+
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Devenir une destination de confiance pour les lecteurs
+                        au Maroc et contribuer à développer une véritable
+                        culture de la lecture.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Nos valeurs -->
+    <section class="container-fluid mw-1400 px-3 px-md-4 px-xl-5 py-5">
+
+        <div class="text-center mb-4 mb-md-5">
+            <span class="eyebrow mb-2">CE QUI NOUS ANIME</span>
+
+            <h2 class="fs-2 fw-bold lh-base mb-0">Nos valeurs</h2>
+
+            <p class="text-body-secondary mt-2 mb-0">
+                Les principes qui guident notre engagement
+                auprès de nos lecteurs.
+            </p>
+
+            <div class="title-line bg-warning rounded-pill mx-auto mt-3"></div>
+        </div>
+
+        <div class="row row-cols-2 row-cols-lg-4 g-2 g-md-3 g-lg-4">
+
+            <div class="col">
+                <article class="card h-100 text-center px-2 px-md-3 py-4 hover-lift">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-warning-subtle fs-3 mx-auto mb-3">📚</div>
+                    <h3 class="fs-6 fw-bold mb-2">La connaissance</h3>
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Encourager l'apprentissage et la découverte
+                    à travers une grande diversité de livres.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 text-center px-2 px-md-3 py-4 hover-lift">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-warning-subtle fs-3 mx-auto mb-3">❤️</div>
+                    <h3 class="fs-6 fw-bold mb-2">La passion de lire</h3>
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Partager notre amour des livres et donner
+                    envie de découvrir de nouvelles histoires.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 text-center px-2 px-md-3 py-4 hover-lift">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-warning-subtle fs-3 mx-auto mb-3">🤝</div>
+                    <h3 class="fs-6 fw-bold mb-2">La proximité</h3>
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Placer les lecteurs au centre de notre démarche
+                    et chercher à répondre à leurs besoins.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col">
+                <article class="card h-100 text-center px-2 px-md-3 py-4 hover-lift">
+                    <div class="icon-circle d-flex align-items-center justify-content-center rounded-circle bg-warning-subtle fs-3 mx-auto mb-3">✨</div>
+                    <h3 class="fs-6 fw-bold mb-2">La simplicité</h3>
+                    <p class="small text-body-secondary lh-lg mb-0">
+                        Faciliter la recherche de livres grâce à
+                    une expérience de navigation agréable.
+                    </p>
+                </article>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Pourquoi choisir Almaarifa ? -->
+    <section class="bg-body-tertiary px-3 px-md-5 py-5">
+        <div class="container-fluid mw-1400">
+            <div class="row g-4 align-items-center">
+
+                <div class="col-12 col-md-7">
+                    <span class="eyebrow mb-2">VOTRE LIBRAIRIE EN LIGNE</span>
+
+                    <h2 class="fs-3 fw-bold lh-base mb-3">Pourquoi choisir Almaarifa ?</h2>
+
+                    <p class="text-body-secondary lh-lg mb-3">
+                        Nous souhaitons rendre chaque visite utile,
+                        chaque découverte enrichissante et chaque lecture
+                        source d'inspiration.
+                    </p>
+
+                    <ul class="list-unstyled mb-4">
+                <li class="d-flex align-items-start gap-3 mb-3 small">
+                    <span class="choix-check d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-warning-subtle text-warning-emphasis fw-bold">✓</span>
+                    Un choix varié de catégories de livres
+                </li>
+                <li class="d-flex align-items-start gap-3 mb-3 small">
+                    <span class="choix-check d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-warning-subtle text-warning-emphasis fw-bold">✓</span>
+                    Une navigation simple et intuitive
+                </li>
+                <li class="d-flex align-items-start gap-3 mb-3 small">
+                    <span class="choix-check d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-warning-subtle text-warning-emphasis fw-bold">✓</span>
+                    Des livres pour différents âges et centres d'intérêt
+                </li>
+                <li class="d-flex align-items-start gap-3 mb-3 small">
+                    <span class="choix-check d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-warning-subtle text-warning-emphasis fw-bold">✓</span>
+                    Une expérience pensée pour les lecteurs
+                </li>
+                    </ul>
+
+                    <a href="Livres.html" class="btn btn-primary d-inline-flex align-items-center gap-3 fw-bold px-4 py-2">
+                        Explorer notre catalogue <span class="btn-arrow fs-5">→</span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-5">
+                    <div class="choix-visuel position-relative d-flex justify-content-center align-items-center">
+                        <div class="choix-grand-cercle"></div>
+
+                        <div class="choix-livre position-relative z-1 bg-primary text-white text-center rounded-2 shadow border-start border-warning border-5 px-3 py-4">
+                            <span>📚</span>
+                            <h3 class="fs-4 fw-bold text-white lh-base my-2">Chaque livre<br>ouvre un monde.</h3>
+                            <p class="fs-8 text-warning mb-0">Lire · Apprendre · Découvrir</p>
+                        </div>
+
+                        <span class="position-absolute bottom-0 end-0 z-2 bg-warning text-primary fs-8 fw-bold tracking-wide rounded-1 px-3 py-2">ALMAARIFA</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section class="container my-5">
+        <div class="bg-primary text-white text-center rounded-3 px-3 py-4 py-md-5">
+
+            <h2 class="fs-3 fw-bold text-white lh-base mb-2">Prêt à découvrir votre prochain livre ?</h2>
+
+            <p class="small opacity-75 mw-600 mx-auto mb-4">
+                Explorez notre collection et laissez-vous inspirer
+                par le pouvoir de la lecture.
+            </p>
+
+            <a href="Livres.html" class="btn btn-warning d-flex d-sm-inline-flex align-items-center justify-content-center gap-3 fw-bold px-4 py-2">
+                Découvrir nos livres <span class="fs-5">→</span>
+            </a>
+
+        </div>
+    </section>
+
+</main>
+<!-- ===== FIN PAGE À PROPOS ===== -->
+
+<footer class="site-footer bg-navy-deep">
+
+    <div class="container-fluid mw-1500 px-3 px-md-4 py-4 py-md-5">
+        <div class="row g-4 g-md-5">
+
+            <!-- Colonne 1 : Présentation -->
+            <div class="footer-column col-12 col-md-6 col-lg-4 d-flex flex-column align-items-start gap-3">
+                <h3 class="fs-5 fw-bold text-white mb-0">Bibliothèque Almaarifa</h3>
+
+                <p class="mb-0 lh-lg">
+                    Votre librairie en ligne au Maroc : des livres
+                    pour tous les âges, en français et en langues
+                    du monde, livrés chez vous.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2 gap-sm-3">
+                    <a href="#" class="social-link d-flex align-items-center justify-content-center rounded-circle fw-bold" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link d-flex align-items-center justify-content-center rounded-circle fw-bold" aria-label="Instagram">◎</a>
+                    <a href="#" class="social-link d-flex align-items-center justify-content-center rounded-circle fw-bold" aria-label="YouTube">▷</a>
+                    <a href="#" class="social-link d-flex align-items-center justify-content-center rounded-circle fw-bold" aria-label="WhatsApp">☏</a>
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Navigation -->
+            <div class="footer-column col-12 col-md-6 col-lg-2 d-flex flex-column align-items-start gap-3">
+                <h3 class="fs-5 fw-bold text-white mb-0">Navigation</h3>
+                <a href="index.html">Accueil</a>
+                <a href="Livres.html">Livres</a>
+                <a href="Auteurs.html">Auteurs</a>
+                <a href="À propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <!-- Colonne 3 : Contact -->
+            <div class="footer-column col-12 col-md-6 col-lg-3 d-flex flex-column align-items-start gap-3">
+                <h3 class="fs-5 fw-bold text-white mb-0">Contact</h3>
+                  <a href="mailto:contact@bibliotheque.com">contact@bibliotheque.com</a>
+                    <a href="tel:+212659 998 170">+212 659 998 170</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Agadir+Maroc" target="_blank"> Voir notre
+                        localisation</a>
+            </div>
+
+            <!-- Colonne 4 : Service client -->
+            <div class="footer-column col-12 col-md-6 col-lg-3 d-flex flex-column align-items-start gap-3">
+                <h3 class="fs-5 fw-bold text-white mb-0">Service client</h3>
+                <a href="#">Questions fréquentes</a>
+                <a href="#">Livraison et retours</a>
+                <a href="#">Nous écrire</a>
+                <a href="#">Mon panier</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="border-top border-white border-opacity-10 text-center small px-3 py-3 py-md-4">
+        <p class="mb-0">
+            © 2026 Bibliothèque Almaarifa. Tous droits réservés.
+        </p>
+    </div>
+
+</footer>
+</body>
+</html>
